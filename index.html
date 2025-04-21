@@ -30,9 +30,9 @@
         </p>
         <h2 class="text-xl font-semibold text-gray-700 dark:text-white mb-2">Tutorial</h2>
         <p class="text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Select an event and a Bible translation, then press Submit. You can adjust text size and line spacing using
-          the sliders. To rearrange the Gospel boxes, click and drag by the author's name. Each box can also be resized
-          vertically to fit more text. Highlight text concurrently in all 4 boxes. Found a bug? Let me know on
+          Adjust the text size and line spacing using the sliders. To rearrange the Gospel tiles, click and drag by the author's name. Each
+          box can also be resized vertically to fit more text. You can highlight text across all four boxes simultaneously. Found a bug or
+          have a feature request? Let me know on
           <a
             href="https://github.com/evancolewright/gospel-harmonizer"
             target="_blank"
@@ -42,35 +42,34 @@
             GitHub</a
           >!
         </p>
+        <p class="text-base text-gray-600 dark:text-gray-300 max-w-3xl font-bold mx-auto leading-relaxed mt-2">
+          Im working on getting more translations!
+        </p>
       </header>
 
-      <!-- Top Controls -->
+      <!-- Top Form -->
       <form id="sceneForm" class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 mb-8 text-sm">
         <!-- Select Event -->
         <div class="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
-          <label for="scene" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
-            Select Event:
-          </label>
+          <label for="scene" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap"> Select Event: </label>
           <select id="scene" placeholder="Search a gospel event..." class="w-full sm:w-64 md:w-96"></select>
         </div>
 
         <!-- Translation -->
         <div class="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
-          <label for="translation" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
-            Translation:
-          </label>
+          <label for="translation" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap"> Translation: </label>
           <select
             id="translation"
             class="w-full sm:w-32 border rounded px-4 py-2 text-sm dark:bg-slate-700 dark:border-slate-600 dark:text-white"
           >
-            <option value="06125adad2d5898a-01">ASV</option>
-            <option value="de4e12af7f28f599-01">KJV</option>
+            <option value="06125adad2d5898a-01">American Standard Version</option>
+            <option value="de4e12af7f28f599-01">King James Version</option>
             <option value="32339cf2f720ff8e-01">The Text-Critical English New Testament</option>
             <option value="7644de2e4c5188e5-01">Text-Critical Greek New Testament</option>
           </select>
         </div>
 
-        <!-- Submit Button -->
+        <!-- Submit -->
         <button
           type="submit"
           class="bg-gray-200 dark:bg-slate-700 border rounded px-4 py-2 text-sm hover:bg-gray-300 dark:hover:bg-slate-500"
@@ -127,24 +126,17 @@
       </div>
 
       <!-- Scene Title -->
-      <div
-        id="scene-title-display"
-        class="mt-2 text-center text-lg font-semibold text-gray-700 dark:text-gray-200"
-      ></div>
+      <div id="scene-title-display" class="mt-2 text-center text-lg font-semibold text-gray-700 dark:text-gray-200"></div>
 
       <!-- Text Controls & Clear Highlight -->
       <div class="flex flex-wrap justify-center items-center gap-6 mt-6 mb-10 text-sm">
         <div class="flex items-center gap-2">
-          <label for="textSize" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
-            Text Size:
-          </label>
+          <label for="textSize" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap"> Text Size: </label>
           <input id="textSize" type="range" min="12" max="24" value="16" class="accent-blue-500" />
         </div>
 
         <div class="flex items-center gap-2">
-          <label for="lineHeight" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
-            Line Height:
-          </label>
+          <label for="lineHeight" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap"> Line Height: </label>
           <input id="lineHeight" type="range" min="1" max="2.5" step="0.1" value="1.5" class="accent-blue-500" />
         </div>
 
@@ -159,12 +151,7 @@
       <!-- Footer -->
       <footer class="mt-12 mb-4 text-center text-sm text-gray-500 dark:text-gray-400">
         Made with ❤️ by
-        <a
-          href="https://evancolewright.github.io"
-          class="underline hover:text-blue-500"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://evancolewright.github.io" class="underline hover:text-blue-500" target="_blank" rel="noopener noreferrer">
           Evan Wright
         </a>
       </footer>

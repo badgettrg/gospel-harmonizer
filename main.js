@@ -1,57 +1,69 @@
-import { fetchPassage, buildOptionsElement } from './functions.js';
+import { buildSceneDropdown, fetchPassage, normalizePassageStr } from './functions.js';
 
-let allOptions = buildOptionsElement();
+buildSceneDropdown();
 
-const sceneSelect = document.getElementById('scene');
-const translationSelect = document.getElementById('translation');
-const sceneTitleDisplay = document.getElementById('scene-title-display');
 const gospelGrid = document.getElementById('gospel-grid');
-const textSizeSlider = document.getElementById('textSize');
-const lineHeightSlider = document.getElementById('lineHeight');
-const gospelBooks = ['Matthew', 'Mark', 'Luke', 'John'];
+new Sortable(gospelGrid, {
+  animation: 150,
+  handle: '.drag-handle',
+  ghostClass: 'bg-gray-300'
+});
 
-const loadScene = async () => {
-  const selectedIndex = parseInt(sceneSelect.value);
-  if (isNaN(selectedIndex)) return;
+document.getElementById('sceneForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const gospelBooks = ['Matthew', 'Mark', 'Luke', 'John'];
 
-  const selectedScene = allOptions[selectedIndex].data;
-  console.log('Selected scene: ' + selectedScene);
-  const bibleId = translationSelect.value;
-  const sceneTitle = allOptions[selectedIndex].title;
+  const selectedOption = document.querySelector('#scene option:checked');
+  if (!selectedOption || !selectedOption.dataset.scene) return;
 
-  sceneTitleDisplay.textContent = `Currently Viewing: ${sceneTitle}`;
+  const scene = JSON.parse(selectedOption.dataset.scene);
+  const sceneTitle = selectedOption.textContent;
+  const bibleId = document.getElementById('translation').value;
 
-  // Reset and update gospel headers
+  document.getElementById('scene-title-display').textContent = `Currently Viewing: ${sceneTitle}`;
+
   gospelBooks.forEach((book) => {
-    const passageId = selectedScene[book.toLowerCase()];
+    const passageId = scene[book.toLowerCase()];
     const wrapper = document.getElementById(`${book}-box`);
-    const header = wrapper?.querySelector('h2');
-
-    if (header) {
-      header.textContent = passageId ? `${book} (${passageId})` : book;
-    }
-  });
-
-  document.querySelectorAll('.verse-box').forEach((box) => {
-    box.addEventListener('mouseup', () => {
-      const selection = window.getSelection();
-      if (selection.toString().length > 0) {
-        const range = selection.getRangeAt(0);
-        const mark = document.createElement('mark');
-        mark.className = 'bg-yellow-200';
-        range.surroundContents(mark);
-        selection.removeAllRanges();
-      }
-    });
+    const header = wrapper.querySelector('h2');
+    header.textContent = passageId ? normalizePassageStr(passageId) : book;
   });
 
   await Promise.all(
     gospelBooks.map((book) => {
-      const passageId = selectedScene[book.toLowerCase()];
+      const passageId = scene[book.toLowerCase()];
       return fetchPassage(book, passageId, bibleId);
     })
   );
-};
+});
+
+document.getElementById('textSize').addEventListener('input', (e) => {
+  const size = `${e.target.value}px`;
+  document.querySelectorAll('.verse-box').forEach((box) => {
+    box.style.fontSize = size;
+  });
+});
+
+document.getElementById('lineHeight').addEventListener('input', (e) => {
+  const lh = e.target.value;
+  document.querySelectorAll('.verse-box').forEach((box) => {
+    box.style.lineHeight = lh;
+  });
+});
+
+// highlighting
+document.querySelectorAll('.verse-box').forEach((box) => {
+  box.addEventListener('mouseup', () => {
+    const selection = window.getSelection();
+    if (selection.toString().length > 0) {
+      const range = selection.getRangeAt(0);
+      const mark = document.createElement('mark');
+      mark.className = 'bg-yellow-200';
+      range.surroundContents(mark);
+      selection.removeAllRanges();
+    }
+  });
+});
 
 window.closeGrid = (book) => {
   const wrapper = document.getElementById(`${book}-box`);
@@ -65,29 +77,3 @@ window.clearHighlights = () => {
     parent.removeChild(mark);
   });
 };
-
-sceneForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  loadScene();
-});
-
-textSizeSlider.addEventListener('input', (e) => {
-  const size = `${e.target.value}px`;
-  document.querySelectorAll('.verse-box').forEach((box) => {
-    box.style.fontSize = size;
-  });
-});
-
-lineHeightSlider.addEventListener('input', (e) => {
-  const lh = e.target.value;
-  document.querySelectorAll('.verse-box').forEach((box) => {
-    box.style.lineHeight = lh;
-  });
-});
-
-// Drag & Drop
-new Sortable(gospelGrid, {
-  animation: 150,
-  handle: '.drag-handle',
-  ghostClass: 'bg-gray-300'
-});

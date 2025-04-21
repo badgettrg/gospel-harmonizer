@@ -1,6 +1,6 @@
 # gospel-harmonizer
 
-A web app for viewing and comparing parallel events from the four New Testament Gospels side by side.
+A website for viewing and comparing parallel events from the four New Testament Gospels side by side.
 
 ## Demo
 

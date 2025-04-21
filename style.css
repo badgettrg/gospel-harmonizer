@@ -12,6 +12,7 @@
   color: white !important;
 }
 
+/** Style the option headers and dropdown */
 .ts-dropdown .optgroup-header {
   font-weight: 600;
   font-size: 0.85rem;
@@ -27,7 +28,7 @@
   border-top: 1px solid #475569;
 }
 
-/** Styles the verse number returned by the Bible api */
+/** Styles the verse number returned by API Bible */
 .v {
   font-weight: bolder;
   color: #9ca3af;
