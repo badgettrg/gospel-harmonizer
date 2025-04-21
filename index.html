@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gospel Harmonizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="main.js" defer></script>
+  </head>
+  <body class="bg-white dark:bg-slate-900 text-black dark:text-white font-sans">
+    <div class="w-full max-w-screen-2xl mx-auto px-4">
+      <!-- Header -->
+      <header class="text-center mt-12 mb-12">
+        <h1 class="text-5xl font-extrabold tracking-tight mb-4 text-gray-900 dark:text-white">Gospel Harmonizer 📖</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+          Compare accounts from the New Testament Gospels with ease. Created using
+          <a
+            href="https://www.blueletterbible.org/study/harmony/index.cfm"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-blue-500 dark:hover:text-blue-400"
+          >
+            Harmony of the Gospels
+          </a>
+          from Blue Letter Bible.
+        </p>
+        <h2 class="text-xl font-semibold text-gray-700 dark:text-white mb-2">Tutorial</h2>
+        <p class="text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Select an event and translation and press submit. Configure text size and line height dynamically using the
+          controls. Click and drag the individual gospel tiles by their author's name to reorder them in any way you
+          like. You can also resize them vertically! Found a bug? Report it on
+          <a
+            href="https://github.com/evancolewright/gospel-harmonizer"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-blue-400"
+          >
+            GitHub
+          </a>
+          .
+        </p>
+      </header>
+
+      <!-- Controls -->
+      <h2 class="text-lg font-semibold text-center mb-4">Controls</h2>
+      <form id="sceneForm" class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 mb-8 text-sm">
+        <div class="flex items-center gap-2">
+          <label for="scene" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
+            Select Event:
+          </label>
+          <select id="scene" placeholder="Search a gospel event..." class="sm:w-64 md:w-96"></select>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <label for="translation" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
+            Translation:
+          </label>
+          <select
+            id="translation"
+            class="border rounded px-4 py-2 text-sm w-32 dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+          >
+            <option value="06125adad2d5898a-01">ASV</option>
+            <option value="de4e12af7f28f599-01">KJV</option>
+            <option value="32339cf2f720ff8e-01">English Text Critical</option>
+            <option value="7644de2e4c5188e5-01">Ancient Text Critical Greek</option>
+          </select>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <label for="textSize" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
+            Text Size:
+          </label>
+          <input id="textSize" type="range" min="12" max="24" value="16" class="accent-blue-500" />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <label for="lineHeight" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
+            Line Height:
+          </label>
+          <input id="lineHeight" type="range" min="1" max="2.5" step="0.1" value="1.5" class="accent-blue-500" />
+        </div>
+
+        <button
+          type="submit"
+          class="bg-gray-200 dark:bg-slate-700 border rounded px-4 py-2 text-sm hover:bg-gray-300 dark:hover:bg-slate-500"
+        >
+          Submit
+        </button>
+      </form>
+
+      <!-- Gospel tiles -->
+      <div id="gospel-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+        <div class="w-full" id="Matthew-box">
+          <div class="flex items-center justify-between mb-1">
+            <h2 class="drag-handle cursor-move text-md font-bold">Matthew</h2>
+            <button onclick="closeGrid('Matthew')" class="text-gray-400 hover:text-red-400 text-sm">✕</button>
+          </div>
+          <div
+            id="Matthew"
+            class="verse-box h-64 w-full overflow-auto resize-y border rounded-lg p-2 scroll-box dark:border-slate-600 dark:bg-slate-700 text-sm"
+          ></div>
+        </div>
+        <div class="w-full" id="Mark-box">
+          <div class="flex items-center justify-between mb-1">
+            <h2 class="drag-handle cursor-move text-md font-bold">Mark</h2>
+            <button onclick="closeGrid('Mark')" class="text-gray-400 hover:text-red-400 text-sm">✕</button>
+          </div>
+          <div
+            id="Mark"
+            class="verse-box h-64 w-full overflow-auto resize-y border rounded-lg p-2 scroll-box dark:border-slate-600 dark:bg-slate-700 text-sm"
+          ></div>
+        </div>
+        <div class="w-full" id="Luke-box">
+          <div class="flex items-center justify-between mb-1">
+            <h2 class="drag-handle cursor-move text-md font-bold">Luke</h2>
+            <button onclick="closeGrid('Luke')" class="text-gray-400 hover:text-red-400 text-sm">✕</button>
+          </div>
+          <div
+            id="Luke"
+            class="verse-box h-64 w-full overflow-auto resize-y border rounded-lg p-2 scroll-box dark:border-slate-600 dark:bg-slate-700 text-sm"
+          ></div>
+        </div>
+        <div class="w-full" id="John-box">
+          <div class="flex items-center justify-between mb-1">
+            <h2 class="drag-handle cursor-move text-md font-bold">John</h2>
+            <button onclick="closeGrid('John')" class="text-gray-400 hover:text-red-400 text-sm">✕</button>
+          </div>
+          <div
+            id="John"
+            class="verse-box h-64 w-full overflow-auto resize-y border rounded-lg p-2 scroll-box dark:border-slate-600 dark:bg-slate-700 text-sm"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Scene Title -->
+      <div
+        id="scene-title-display"
+        class="mt-10 text-center text-lg font-semibold text-gray-700 dark:text-gray-200"
+      ></div>
+
+      <!-- Footer -->
+      <footer class="mt-12 mb-4 text-center text-sm text-gray-500 dark:text-gray-400">
+        Made with ❤️ by
+        <a
+          href="https://evancolewright.github.io"
+          class="underline hover:text-blue-500"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Evan Wright
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
