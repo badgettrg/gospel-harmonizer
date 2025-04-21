@@ -29,10 +29,11 @@
 
 /** Styles the verse number returned by the Bible api */
 .v {
-  font-weight: bold;
+  font-weight: bolder;
   color: #9ca3af;
   margin-right: 5px;
 }
+
 .drag-handle::after {
   content: '⇅';
   font-size: 0.75rem;

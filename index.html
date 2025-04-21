@@ -32,36 +32,36 @@
         <p class="text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
           Select an event and a Bible translation, then press Submit. You can adjust text size and line spacing using
           the sliders. To rearrange the Gospel boxes, click and drag by the author's name. Each box can also be resized
-          vertically to fit more text. Found a bug? Let me know on
+          vertically to fit more text. Highlight text concurrently in all 4 boxes. Found a bug? Let me know on
           <a
             href="https://github.com/evancolewright/gospel-harmonizer"
             target="_blank"
             rel="noopener noreferrer"
             class="underline hover:text-blue-400"
           >
-            GitHub
-          </a>
-          !
+            GitHub</a
+          >!
         </p>
       </header>
 
-      <!-- Controls -->
-      <h2 class="text-lg font-semibold text-center mb-3">Controls</h2>
+      <!-- Top Controls -->
       <form id="sceneForm" class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 mb-8 text-sm">
-        <div class="flex items-center gap-2">
+        <!-- Select Event -->
+        <div class="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
           <label for="scene" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
             Select Event:
           </label>
-          <select id="scene" placeholder="Search a gospel event..." class="sm:w-64 md:w-96"></select>
+          <select id="scene" placeholder="Search a gospel event..." class="w-full sm:w-64 md:w-96"></select>
         </div>
 
-        <div class="flex items-center gap-2">
+        <!-- Translation -->
+        <div class="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
           <label for="translation" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
             Translation:
           </label>
           <select
             id="translation"
-            class="border rounded px-4 py-2 text-sm w-32 dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+            class="w-full sm:w-32 border rounded px-4 py-2 text-sm dark:bg-slate-700 dark:border-slate-600 dark:text-white"
           >
             <option value="06125adad2d5898a-01">ASV</option>
             <option value="de4e12af7f28f599-01">KJV</option>
@@ -70,20 +70,7 @@
           </select>
         </div>
 
-        <div class="flex items-center gap-2">
-          <label for="textSize" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
-            Text Size:
-          </label>
-          <input id="textSize" type="range" min="12" max="24" value="16" class="accent-blue-500" />
-        </div>
-
-        <div class="flex items-center gap-2">
-          <label for="lineHeight" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
-            Line Height:
-          </label>
-          <input id="lineHeight" type="range" min="1" max="2.5" step="0.1" value="1.5" class="accent-blue-500" />
-        </div>
-
+        <!-- Submit Button -->
         <button
           type="submit"
           class="bg-gray-200 dark:bg-slate-700 border rounded px-4 py-2 text-sm hover:bg-gray-300 dark:hover:bg-slate-500"
@@ -92,8 +79,8 @@
         </button>
       </form>
 
-      <!-- Gospel tiles -->
-      <div id="gospel-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+      <!-- Gospel Grid -->
+      <div id="gospel-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mb-8">
         <div class="w-full" id="Matthew-box">
           <div class="flex items-center justify-between mb-1">
             <h2 class="drag-handle cursor-move text-md font-bold">Matthew</h2>
@@ -104,6 +91,7 @@
             class="verse-box h-64 w-full overflow-auto resize-y border-2 rounded-lg p-2 scroll-box dark:border-slate-600 dark:bg-slate-700 text-sm"
           ></div>
         </div>
+
         <div class="w-full" id="Mark-box">
           <div class="flex items-center justify-between mb-1">
             <h2 class="drag-handle cursor-move text-md font-bold">Mark</h2>
@@ -114,6 +102,7 @@
             class="verse-box h-64 w-full overflow-auto resize-y border-2 rounded-lg p-2 scroll-box dark:border-slate-600 dark:bg-slate-700 text-sm"
           ></div>
         </div>
+
         <div class="w-full" id="Luke-box">
           <div class="flex items-center justify-between mb-1">
             <h2 class="drag-handle cursor-move text-md font-bold">Luke</h2>
@@ -124,6 +113,7 @@
             class="verse-box h-64 w-full overflow-auto resize-y border-2 rounded-lg p-2 scroll-box dark:border-slate-600 dark:bg-slate-700 text-sm"
           ></div>
         </div>
+
         <div class="w-full" id="John-box">
           <div class="flex items-center justify-between mb-1">
             <h2 class="drag-handle cursor-move text-md font-bold">John</h2>
@@ -139,8 +129,32 @@
       <!-- Scene Title -->
       <div
         id="scene-title-display"
-        class="mt-10 text-center text-lg font-semibold text-gray-700 dark:text-gray-200"
+        class="mt-2 text-center text-lg font-semibold text-gray-700 dark:text-gray-200"
       ></div>
+
+      <!-- Text Controls & Clear Highlight -->
+      <div class="flex flex-wrap justify-center items-center gap-6 mt-6 mb-10 text-sm">
+        <div class="flex items-center gap-2">
+          <label for="textSize" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
+            Text Size:
+          </label>
+          <input id="textSize" type="range" min="12" max="24" value="16" class="accent-blue-500" />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <label for="lineHeight" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap">
+            Line Height:
+          </label>
+          <input id="lineHeight" type="range" min="1" max="2.5" step="0.1" value="1.5" class="accent-blue-500" />
+        </div>
+
+        <button
+          onclick="clearHighlights()"
+          class="bg-gray-200 dark:bg-slate-700 border rounded px-4 py-2 hover:bg-gray-300 dark:hover:bg-slate-500"
+        >
+          Clear Highlights
+        </button>
+      </div>
 
       <!-- Footer -->
       <footer class="mt-12 mb-4 text-center text-sm text-gray-500 dark:text-gray-400">

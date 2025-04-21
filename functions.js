@@ -13,6 +13,7 @@ export const fetchPassage = async (book, passageId, bibleId) => {
     const res = await fetch(url, {
       headers: { 'api-key': '29debb9a8eae0ecb2959ebe64d754bb3' }
     });
+
     const data = await res.json();
     if (!data.data?.content) {
       wrapper.style.display = 'none';
