@@ -1,4 +1,3 @@
-// modules/dom.js
 import { normalizePassageStr } from './utils.js';
 import { harmonyData } from '../data/harmonyData.js';
 
