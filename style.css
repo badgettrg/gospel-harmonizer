@@ -17,15 +17,9 @@
   font-weight: 600;
   font-size: 0.85rem;
   padding: 6px 12px;
-  background-color: #f3f4f6;
-  color: #374151;
-  border-top: 1px solid #e5e7eb;
-}
-
-.dark .ts-dropdown .optgroup-header {
-  background-color: #334155;
-  color: #e2e8f0;
-  border-top: 1px solid #475569;
+  background-color: #f3f4f6; /* light subtle gray */
+  color: #374151; /* gray-800 */
+  border-top: 1px solid #e5e7eb; /* gray-200 */
 }
 
 /** Styles the verse number returned by API Bible */
@@ -37,7 +31,7 @@
 
 .drag-handle::after {
   content: '⇅';
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   margin-left: 0.5rem;
   color: #9ca3af;
 }

@@ -42,9 +42,6 @@
             GitHub</a
           >!
         </p>
-        <p class="text-base text-gray-600 dark:text-gray-300 max-w-3xl font-bold mx-auto leading-relaxed mt-2">
-          Im working on getting more translations!
-        </p>
       </header>
 
       <!-- Top Form -->
@@ -60,7 +57,7 @@
           <label for="translation" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap"> Translation: </label>
           <select
             id="translation"
-            class="w-full sm:w-32 border rounded px-4 py-2 text-sm dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+            class="w-full sm:w-64 border rounded px-4 py-2 text-sm dark:bg-slate-700 dark:border-slate-600 dark:text-white"
           >
             <option value="06125adad2d5898a-01">American Standard Version</option>
             <option value="de4e12af7f28f599-01">King James Version</option>
@@ -83,7 +80,7 @@
         <div class="w-full" id="Matthew-box">
           <div class="flex items-center justify-between mb-1">
             <h2 class="drag-handle cursor-move text-md font-bold">Matthew</h2>
-            <button onclick="closeGrid('Matthew')" class="text-gray-400 hover:text-red-400 text-sm">✕</button>
+            <button onclick="closeGrid('Matthew')" class="text-gray-400 hover:text-red-400 text-md font-extrabold">✕</button>
           </div>
           <div
             id="Matthew"
@@ -94,7 +91,7 @@
         <div class="w-full" id="Mark-box">
           <div class="flex items-center justify-between mb-1">
             <h2 class="drag-handle cursor-move text-md font-bold">Mark</h2>
-            <button onclick="closeGrid('Mark')" class="text-gray-400 hover:text-red-400 text-sm">✕</button>
+            <button onclick="closeGrid('Mark')" class="text-gray-400 hover:text-red-400 text-md font-extrabold">✕</button>
           </div>
           <div
             id="Mark"
@@ -105,7 +102,7 @@
         <div class="w-full" id="Luke-box">
           <div class="flex items-center justify-between mb-1">
             <h2 class="drag-handle cursor-move text-md font-bold">Luke</h2>
-            <button onclick="closeGrid('Luke')" class="text-gray-400 hover:text-red-400 text-sm">✕</button>
+            <button onclick="closeGrid('Luke')" class="text-gray-400 hover:text-red-400 text-md font-extrabold">✕</button>
           </div>
           <div
             id="Luke"
@@ -115,8 +112,8 @@
 
         <div class="w-full" id="John-box">
           <div class="flex items-center justify-between mb-1">
-            <h2 class="drag-handle cursor-move text-md font-bold">John</h2>
-            <button onclick="closeGrid('John')" class="text-gray-400 hover:text-red-400 text-sm">✕</button>
+            <h2 class="drag-handle cursor-move text-md font-extrabold">John</h2>
+            <button onclick="closeGrid('John')" class="text-gray-400 hover:text-red-400 text-md font-extrabold">✕</button>
           </div>
           <div
             id="John"
@@ -139,7 +136,11 @@
           <label for="lineHeight" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap"> Line Height: </label>
           <input id="lineHeight" type="range" min="1" max="2.5" step="0.1" value="1.5" class="accent-blue-500" />
         </div>
-
+        <!-- Toggle Verse Numbers -->
+        <div class="flex items-center gap-2">
+          <label for="toggleVerses" class="text-gray-700 dark:text-gray-200 font-medium whitespace-nowrap"> Show Verse Numbers </label>
+          <input id="toggleVerses" type="checkbox" class="accent-blue-500" checked />
+        </div>
         <button
           onclick="clearHighlights()"
           class="bg-gray-200 dark:bg-slate-700 border rounded px-4 py-2 hover:bg-gray-300 dark:hover:bg-slate-500"

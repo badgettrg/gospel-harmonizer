@@ -24,7 +24,10 @@ export const fetchPassage = async (book, passageId, bibleId) => {
     return;
   }
 
-  const url = `https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${passageId}?content-type=html&include-verse-numbers=true`;
+  const showVerseNumbers = document.getElementById('toggleVerses')?.checked ?? true;
+  const includeVerseParam = showVerseNumbers ? 'true' : 'false';
+
+  const url = `https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${passageId}?content-type=html&include-verse-numbers=${includeVerseParam}`;
 
   try {
     const res = await fetch(url, {

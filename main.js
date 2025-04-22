@@ -51,17 +51,25 @@ document.getElementById('lineHeight').addEventListener('input', (e) => {
   });
 });
 
-// highlighting
-document.querySelectorAll('.verse-box').forEach((box) => {
-  box.addEventListener('mouseup', () => {
-    const selection = window.getSelection();
-    if (selection.toString().length > 0) {
-      const range = selection.getRangeAt(0);
-      const mark = document.createElement('mark');
-      mark.className = 'bg-yellow-200';
+function highlightSelection() {
+  const selection = window.getSelection();
+  if (selection && selection.toString().length > 0) {
+    const range = selection.getRangeAt(0);
+    const mark = document.createElement('mark');
+    mark.className = 'bg-yellow-200';
+    try {
       range.surroundContents(mark);
-      selection.removeAllRanges();
+    } catch (e) {
+      console.warn('Highlight failed:', e);
     }
+    selection.removeAllRanges();
+  }
+}
+
+document.querySelectorAll('.verse-box').forEach((box) => {
+  box.addEventListener('mouseup', highlightSelection);
+  box.addEventListener('touchend', () => {
+    setTimeout(highlightSelection, 1);
   });
 });
 
