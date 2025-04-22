@@ -1,9 +1,10 @@
-import { buildSceneDropdown, fetchPassage, normalizePassageStr } from './functions.js';
+import { buildSceneDropdown } from './modules/dom.js';
+import { fetchPassage } from './modules/api.js';
+import { renderPassageToBox, updateBoxHeaders, clearHighlights, highlightSelection } from './modules/dom.js';
 
 buildSceneDropdown();
 
-const gospelGrid = document.getElementById('gospel-grid');
-new Sortable(gospelGrid, {
+new Sortable(document.getElementById('gospel-grid'), {
   animation: 150,
   handle: '.drag-handle',
   ghostClass: 'bg-gray-300'
@@ -11,28 +12,22 @@ new Sortable(gospelGrid, {
 
 document.getElementById('sceneForm').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const gospelBooks = ['Matthew', 'Mark', 'Luke', 'John'];
-
   const selectedOption = document.querySelector('#scene option:checked');
   if (!selectedOption || !selectedOption.dataset.scene) return;
 
   const scene = JSON.parse(selectedOption.dataset.scene);
   const sceneTitle = selectedOption.textContent;
   const bibleId = document.getElementById('translation').value;
+  const showVerses = document.getElementById('toggleVerses')?.checked ?? true;
 
   document.getElementById('scene-title-display').textContent = `Currently Viewing: ${sceneTitle}`;
-
-  gospelBooks.forEach((book) => {
-    const passageId = scene[book.toLowerCase()];
-    const wrapper = document.getElementById(`${book}-box`);
-    const header = wrapper.querySelector('h2');
-    header.textContent = passageId ? normalizePassageStr(passageId) : book;
-  });
+  updateBoxHeaders(scene);
 
   await Promise.all(
-    gospelBooks.map((book) => {
+    ['Matthew', 'Mark', 'Luke', 'John'].map(async (book) => {
       const passageId = scene[book.toLowerCase()];
-      return fetchPassage(book, passageId, bibleId);
+      const content = await fetchPassage(passageId, bibleId, showVerses);
+      renderPassageToBox(book, content);
     })
   );
 });
@@ -51,26 +46,9 @@ document.getElementById('lineHeight').addEventListener('input', (e) => {
   });
 });
 
-function highlightSelection() {
-  const selection = window.getSelection();
-  if (selection && selection.toString().length > 0) {
-    const range = selection.getRangeAt(0);
-    const mark = document.createElement('mark');
-    mark.className = 'bg-yellow-200';
-    try {
-      range.surroundContents(mark);
-    } catch (e) {
-      console.warn('Highlight failed:', e);
-    }
-    selection.removeAllRanges();
-  }
-}
-
 document.querySelectorAll('.verse-box').forEach((box) => {
   box.addEventListener('mouseup', highlightSelection);
-  box.addEventListener('touchend', () => {
-    setTimeout(highlightSelection, 1);
-  });
+  box.addEventListener('touchend', () => setTimeout(highlightSelection, 1));
 });
 
 window.closeGrid = (book) => {
@@ -78,10 +56,4 @@ window.closeGrid = (book) => {
   if (wrapper) wrapper.style.display = 'none';
 };
 
-window.clearHighlights = () => {
-  document.querySelectorAll('mark').forEach((mark) => {
-    const parent = mark.parentNode;
-    while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
-    parent.removeChild(mark);
-  });
-};
+window.clearHighlights = clearHighlights;
