@@ -46,6 +46,12 @@ document.getElementById('lineHeight').addEventListener('input', (e) => {
   });
 });
 
+document.getElementById('toggleVerses').addEventListener('change', () => {
+  const form = document.getElementById('sceneForm');
+  const event = new Event('submit');
+  form.dispatchEvent(event);
+});
+
 document.querySelectorAll('.verse-box').forEach((box) => {
   box.addEventListener('mouseup', highlightSelection);
   box.addEventListener('touchend', () => setTimeout(highlightSelection, 1));
