@@ -24,15 +24,21 @@
             rel="noopener noreferrer"
             class="underline hover:text-blue-500 dark:hover:text-blue-400"
           >
-            Harmony of the Gospels
-          </a>
+            Harmony of the Gospels</a
+          >
           from Blue Letter Bible.
         </p>
         <h2 class="text-xl font-semibold text-gray-700 dark:text-white mb-2">Tutorial</h2>
         <p class="text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Adjust the text size and line spacing using the sliders. To rearrange the Gospel tiles, click and drag by the author's name. Each
-          box can also be resized vertically to fit more text. You can highlight text across all four boxes simultaneously. Found a bug or
-          have a feature request? Let me know on
+          Adjust the text size and line spacing using the sliders. To rearrange the Gospel tiles,
+          <a
+            href="https://gyazo.com/fdeb5b8c5486891bcfb46057f72b0df2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-blue-400"
+            >click and drag by the author's name</a
+          >. Each box can also be resized vertically using the bottom right corner to fit more text. You can highlight text across all four
+          boxes simultaneously. Found a bug or have a feature request? Let me know on
           <a
             href="https://github.com/evancolewright/gospel-harmonizer"
             target="_blank"
@@ -59,10 +65,18 @@
             id="translation"
             class="w-full sm:w-64 border rounded px-4 py-2 text-sm dark:bg-slate-700 dark:border-slate-600 dark:text-white"
           >
-            <option value="06125adad2d5898a-01">American Standard Version</option>
-            <option value="de4e12af7f28f599-01">King James Version</option>
-            <option value="32339cf2f720ff8e-01">The Text-Critical English New Testament</option>
-            <option value="7644de2e4c5188e5-01">Text-Critical Greek New Testament</option>
+            <optgroup label="English">
+              <option value="bba9f40183526463-01">Berean Standard Bible (BSB)</option>
+              <option value="de4e12af7f28f599-01">King James Version (KJV)</option>
+              <option value="06125adad2d5898a-01">American Standard Version (ASV)</option>
+              <option value="32339cf2f720ff8e-01">Text-Critical English NT (TCENT)</option>
+              <option value="5e29945cf530b0f6-01">English NT According to Family 35</option>
+            </optgroup>
+
+            <optgroup label="Greek">
+              <option value="7644de2e4c5188e5-01">Text-Critical Greek NT</option>
+              <option value="5e29945cf530b0f6-01">Greek NT According to Family 35</option>
+            </optgroup>
           </select>
         </div>
 
