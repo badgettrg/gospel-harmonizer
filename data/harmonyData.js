@@ -38,6 +38,99 @@ export const harmonyData = {
       john: 'JHN.1.32-JHN.1.34'
     }
   ],
+  'The Temptation of Christ': [
+    {
+      title: 'The temptation',
+      matthew: 'MAT.4.1-MAT.4.11',
+      mark: 'MRK.1.12-MRK.1.13',
+      luke: 'LUK.4.1-LUK.3.13',
+      john: ''
+    }
+  ],
+  'The Early Ministry of Christ': [
+    {
+      title: 'John the Baptist in prison',
+      matthew: 'MAT.4.12',
+      mark: 'MRK.1.14',
+      luke: 'LUK.3.19-LUK.3.20',
+      john: 'JHN.3.24'
+    },
+    {
+      title: 'Christ returns to Galilee',
+      matthew: 'MAT.4.12',
+      mark: 'MRK.1.14-MRK.1.15',
+      luke: 'LUK.4.14-LUK.4.15',
+      john: 'JHN.4.43-JHN.4.45'
+    },
+    {
+      title: 'Andrew and Simon, James and John called',
+      matthew: 'MAT.4.13-MAT.4.22',
+      mark: 'MRK.1.16-MRK.1.20',
+      luke: 'LUK.5.1-LUK.4.11',
+      john: ''
+    }
+  ],
+  'Miracles of Christ': [
+    {
+      title: 'The demoniac in the synagogue healed',
+      mark: 'MRK.1.21-MRK.1.28',
+      luke: 'LUK.4.31-LUK.4.37'
+    },
+    {
+      title: 'Simon’s wife’s mother healed',
+      matthew: 'MAT.8.14-MAT.8.17',
+      mark: 'MRK.1.29-MRK.1.34',
+      luke: 'LUK.4.38-LUK.4.41'
+    },
+    {
+      title: 'Circuit round Galilee',
+      matthew: 'MAT.4.23-MAT.4.25',
+      mark: 'MRK.1.35-MRK.1.39',
+      luke: 'LUK.4.42-LUK.4.44'
+    },
+    {
+      title: 'Healing a leper',
+      matthew: 'MAT.8.1-MAT.8.4',
+      mark: 'MRK.1.40-MRK.1.45',
+      luke: 'LUK.5.12-LUK.5.16'
+    },
+    {
+      title: 'Christ stills the storm',
+      matthew: 'MAT.8.18-MAT.8.27',
+      mark: 'MRK.4.35-MRK.4.41',
+      luke: 'LUK.8.22-LUK.8.25'
+    },
+    {
+      title: 'Demoniacs in the land of the Gadarenes',
+      matthew: 'MAT.8.28-MAT.8.34',
+      mark: 'MRK.5.1-MRK.5.20',
+      luke: 'LUK.8.26-LUK.8.39'
+    },
+    {
+      title: 'Jairus’ daughter. Woman healed',
+      matthew: 'MAT.9.18-MAT.9.26',
+      mark: 'MRK.5.21-MRK.5.43',
+      luke: 'LUK.8.40-LUK.8.56'
+    },
+    {
+      title: 'Healing the paralytic',
+      matthew: 'MAT.9.1-MAT.9.8',
+      mark: 'MRK.2.1-MRK.2.12',
+      luke: 'LUK.5.17-LUK.5.26'
+    },
+    {
+      title: 'Matthew the publican',
+      matthew: 'MAT.9.9-MAT.9.13',
+      mark: 'MRK.2.13-MRK.2.17',
+      luke: 'LUK.5.27-LUK.5.32'
+    },
+    {
+      title: '“Thy disciples fast not”',
+      matthew: 'MAT.9.14-MAT.9.17',
+      mark: 'MRK.2.18-MRK.2.22',
+      luke: 'LUK.5.33-LUK.5.39'
+    }
+  ],
   'Ministry and Parables': [
     {
       title: 'Plucking ears of corn on the Sabbath',
@@ -75,45 +168,10 @@ export const harmonyData = {
       john: ''
     },
     {
-      title: 'The widow’s son at Nain',
-      matthew: '',
-      mark: '',
-      luke: 'LUK.7.11-LUK.7.17',
-      john: ''
-    },
-    {
       title: 'Messengers from John',
       matthew: 'MAT.11.2-MAT.11.19',
       mark: '',
       luke: 'LUK.7.18-LUK.7.35',
-      john: ''
-    },
-    {
-      title: 'Woe denounced to the cities of Galilee',
-      matthew: 'MAT.11.20-MAT.11.24',
-      mark: '',
-      luke: '',
-      john: ''
-    },
-    {
-      title: 'Call to the meek and suffering',
-      matthew: 'MAT.11.25-MAT.11.30',
-      mark: '',
-      luke: '',
-      john: ''
-    },
-    {
-      title: 'Anointing the feet of Jesus',
-      matthew: '',
-      mark: '',
-      luke: 'LUK.7.36-LUK.7.50',
-      john: ''
-    },
-    {
-      title: 'Second circuit round Galilee',
-      matthew: '',
-      mark: '',
-      luke: 'LUK.8.1-LUK.8.3',
       john: ''
     },
     {
@@ -128,20 +186,6 @@ export const harmonyData = {
       matthew: '',
       mark: 'MRK.4.21-MRK.4.25',
       luke: 'LUK.8.16-LUK.8.18',
-      john: ''
-    },
-    {
-      title: 'Parable of the seed growing secretly',
-      matthew: '',
-      mark: 'MRK.4.26-MRK.4.29',
-      luke: '',
-      john: ''
-    },
-    {
-      title: 'Parable of the wheat and tares',
-      matthew: 'MAT.13.24-MAT.13.30',
-      mark: '',
-      luke: '',
       john: ''
     },
     {
@@ -162,20 +206,6 @@ export const harmonyData = {
       title: 'On teaching by parables',
       matthew: 'MAT.13.34-MAT.13.35',
       mark: 'MRK.4.33-MRK.4.34',
-      luke: '',
-      john: ''
-    },
-    {
-      title: 'The wheat and tares explained',
-      matthew: 'MAT.13.36-MAT.13.43',
-      mark: '',
-      luke: '',
-      john: ''
-    },
-    {
-      title: 'The hid treasure, the pearl, the net',
-      matthew: 'MAT.13.44-MAT.13.52',
-      mark: '',
       luke: '',
       john: ''
     },
@@ -403,14 +433,70 @@ export const harmonyData = {
       mark: '',
       luke: 'LUK.11.29-LUK.11.32',
       john: ''
+    },
+    {
+      title: 'The light of the body',
+      matthew: 'MAT.5.15',
+      mark: '',
+      luke: 'LUK.11.33-LUK.11.36',
+      john: ''
+    },
+    {
+      title: 'The Pharisees',
+      matthew: 'MAT.23.1-MAT.23.39',
+      mark: '',
+      luke: 'LUK.11.37-LUK.11.54',
+      john: ''
+    },
+    {
+      title: 'What to fear',
+      matthew: 'MAT.10.26-MAT.10.33',
+      mark: '',
+      luke: 'LUK.11.29-LUK.11.32',
+      john: ''
+    },
+    {
+      title: 'Covetousness',
+      matthew: 'MAT.6.25-MAT.6.33',
+      mark: '',
+      luke: 'LUK.12.13-LUK.12.31',
+      john: ''
+    },
+    {
+      title: 'The grain of mustard-seed',
+      matthew: 'MAT.13.31-MAT.13.32',
+      mark: 'MRK.4.30-MRK.4.32',
+      luke: 'LUK.13.18-LUK.13.19',
+      john: ''
+    },
+    {
+      title: 'The leaven',
+      matthew: 'MAT.13.31-MAT.13.33',
+      mark: '',
+      luke: 'LUK.13.20-LUK.13.21',
+      john: ''
     }
   ],
   'Towards and At Jerusalem': [
+    {
+      title: 'Prophecy against Jerusalem',
+      matthew: 'MAT.23.37-MAT.23.39',
+      mark: '',
+      luke: 'LUK.13.34-LUK.13.35',
+      john: ''
+    },
     {
       title: 'Parable of the great supper',
       matthew: 'MAT.22.1-MAT.22.14',
       mark: '',
       luke: 'LUK.14.15-LUK.14.24',
+      john: ''
+    },
+    {
+      title: 'Following Christ with the cross',
+      matthew: 'MAT.10.37-MAT.10.38',
+      mark: '',
+      luke: 'LUK.14.25-LUK.14.35',
       john: ''
     },
     {
@@ -517,6 +603,41 @@ export const harmonyData = {
       mark: 'MRK.13.1-MRK.13.37',
       luke: 'LUK.21.5-LUK.21.36',
       john: ''
+    },
+    {
+      title: 'Last passover. Conspiracy of Jews',
+      matthew: 'MAT.26.1-MAT.26.5',
+      mark: 'MRK.14.1-MRK.14.2',
+      luke: 'LUK.22.1-LUK.22.1',
+      john: ''
+    },
+    {
+      title: 'Judas Iscariot',
+      matthew: 'MAT.26.14-MAT.26.16',
+      mark: 'MRK.14.10-MRK.14.11',
+      luke: 'LUK.22.3-LUK.22.6',
+      john: ''
+    },
+    {
+      title: 'Paschal supper',
+      matthew: 'MAT.26.17-MAT.26.31',
+      mark: 'MRK.14.12-MRK.14.26',
+      luke: 'LUK.22.7-LUK.22.23',
+      john: 'JHN.13.1-JHN.13.35'
+    },
+    {
+      title: 'Peter’s fall foretold',
+      matthew: 'MAT.26.31-MAT.26.35',
+      mark: 'MRK.14.27-MRK.14.31',
+      luke: 'LUK.22.31-LUK.22.39',
+      john: 'JHN.13.36-JHN.13.38'
+    },
+    {
+      title: 'Gethsemane',
+      matthew: 'MAT.26.36-MAT.26.46',
+      mark: 'MRK.14.32-MRK.14.42',
+      luke: 'LUK.22.40-LUK.22.46',
+      john: 'JHN.18.1'
     }
   ],
   'The Betrayal and Trial of Christ': [
