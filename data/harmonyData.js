@@ -43,7 +43,7 @@ export const harmonyData = {
       title: 'The temptation',
       matthew: 'MAT.4.1-MAT.4.11',
       mark: 'MRK.1.12-MRK.1.13',
-      luke: 'LUK.4.1-LUK.3.13',
+      luke: 'LUK.4.1-LUK.4.13',
       john: ''
     }
   ],
