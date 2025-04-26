@@ -1,0 +1,35 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Create config.js from secret
+        run: |
+          mkdir -p static
+          echo "export const API_KEY = '${{ secrets.API_KEY }}';" > ./static/config.js
+
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: . # Adjust if needed
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

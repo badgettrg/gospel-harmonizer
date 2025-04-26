@@ -17,7 +17,7 @@ A website for viewing and comparing **parallel** events from the four New Testam
 
 ## Current Limitations
 
-The primary limitation is the set of available translations within the site. I've contacted API.Bible and hope to receive access to the **NIV (New International Version)** and **ESV (English Standard Version)** for my demo site in the coming weeks.  Also, only the Text Critical New Testament translation has the words of Jesus in red.
+The primary limitation is the set of available translations within the site. I've contacted API.Bible and hope to receive access to the **NIV (New International Version)** and **ESV (English Standard Version)** for my demo site in the coming weeks. Also, only the Text Critical New Testament translation has the words of Jesus in red.
 
 ## Demo
 
