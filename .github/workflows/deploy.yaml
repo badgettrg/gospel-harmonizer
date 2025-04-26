@@ -30,9 +30,9 @@ jobs:
       - name: Create config.js
         run: |
           mkdir -p static
-          echo "export const API_KEY = '${{ secrets.API_KEY }}';" > ./static/config.js
+          echo "export const API_KEY = '${{ secrets.API_KEY }}';" > ./config.js
 
-      - name: Upload static site
+      - name: Upload static sitex`
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
