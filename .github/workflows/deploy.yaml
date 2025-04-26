@@ -13,6 +13,9 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,12 +26,12 @@ jobs:
       - name: Create config.js from secret
         run: |
           mkdir -p static
-          echo "export const API_KEY = '${{ secrets.API_KEY }}';" > ./static/config.js
+          echo "export const API_KEY = '${{ secrets.PUBLIC_API_KEY }}';" > ./static/config.js
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: . # Adjust if needed
+          path: .  # Or wherever your files are
 
       - name: Deploy to GitHub Pages
         id: deployment
