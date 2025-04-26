@@ -26,12 +26,12 @@ jobs:
       - name: Create config.js from secret
         run: |
           mkdir -p static
-          echo "export const API_KEY = '${{ secrets.PUBLIC_API_KEY }}';" > ./static/config.js
+          echo "export const API_KEY = '${{ secrets.PUBLIC_API_KEY }}';" > ./config.js
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .  # Or wherever your files are
+          path: .  
 
       - name: Deploy to GitHub Pages
         id: deployment
