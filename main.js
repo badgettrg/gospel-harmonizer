@@ -30,7 +30,6 @@ document.getElementById('sceneForm').addEventListener('submit', async (e) => {
     ['Matthew', 'Mark', 'Luke', 'John'].map(async (book) => {
       const passageId = scene[book.toLowerCase()];
       const content = await fetchPassage(passageId, bibleId, showVerses);
-      console.log(content);
       renderPassageToBox(book, content);
     })
   );
