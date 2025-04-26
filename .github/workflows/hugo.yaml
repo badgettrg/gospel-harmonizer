@@ -62,7 +62,7 @@ jobs:
             hugo-
       - name: Create config.js
         run: |
-          echo "export const API_KEY = '${{ secrets.PUBLIC_API_KEY }}';" > ./config.js
+          echo "export const API_KEY = '${{ secrets.API_KEY }}';" > ./config.js
 
       - name: Configure Git
         run: git config core.quotepath false
