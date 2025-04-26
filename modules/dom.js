@@ -38,10 +38,12 @@ export const buildSceneDropdown = () => {
     });
   }
 
-  new TomSelect('#scene', {
+  const tom = new TomSelect('#scene', {
     placeholder: 'Search Gospel event...',
     maxOptions: 500
   });
+
+  return tom;
 };
 
 export const updateBoxHeaders = (scene) => {

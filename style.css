@@ -26,6 +26,10 @@
   margin-right: 5px;
 }
 
+.wj {
+  color: rgb(229, 76, 76);
+}
+
 .drag-handle::after {
   content: '⇅';
   font-size: 0.85rem;
