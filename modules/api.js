@@ -1,3 +1,5 @@
+import { API_KEY } from '../config.js';
+
 export const fetchPassage = async (passageId, bibleId, includeVerseNumbers = true) => {
   if (!passageId) return null;
 
@@ -6,7 +8,7 @@ export const fetchPassage = async (passageId, bibleId, includeVerseNumbers = tru
 
   try {
     const res = await fetch(url, {
-      headers: { 'api-key': '29debb9a8eae0ecb2959ebe64d754bb3' }
+      headers: { 'api-key': API_KEY }
     });
     const data = await res.json();
     return data?.data?.content || null;

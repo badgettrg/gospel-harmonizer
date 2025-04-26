@@ -7,8 +7,13 @@ A website for viewing and comparing **parallel** events from the four New Testam
 1. Clone the repository
    `git clone evancolewright/gospel-harmonizer`
 
-2. From the root directory of the source code, run: `npx serve .`
-3. Navigate to `localhost:3000/` in your browser
+2. Create a new file called `config.js` at the root level of the project and copy the contents of `config.example.js` into it.
+
+   > You will need an api key from https://scripture.api.bible/
+
+3. From the root directory of the source code, run: `npx serve .`
+
+4. Navigate to `localhost:3000/` in your browser
 
 ## Current Limitations
 
