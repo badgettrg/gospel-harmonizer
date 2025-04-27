@@ -104,4 +104,9 @@ window.addEventListener('load', () => {
   if (savedToggleVerses !== null) {
     document.getElementById('toggleVerses').checked = savedToggleVerses === 'true';
   }
+
+  const form = document.getElementById('sceneForm');
+  if (form) {
+    form.dispatchEvent(new Event('submit'));
+  }
 });
