@@ -1,4 +1,4 @@
-import { API_KEY } from '../config.js';
+import { API_KEY } from '/config.js';
 
 export const fetchPassage = async (passageId, bibleId, includeVerseNumbers = true) => {
   if (!passageId) return null;
