@@ -101,5 +101,7 @@ window.addEventListener('load', () => {
 
   document.getElementById('textSize').value = savedFontSize.replace('px', '');
   document.getElementById('lineHeight').value = savedLineHeight;
-  document.getElementById('toggleVerses').checked = savedToggleVerses === 'true';
+  if (savedToggleVerses !== null) {
+    document.getElementById('toggleVerses').checked = savedToggleVerses === 'true';
+  }
 });
