@@ -71,7 +71,6 @@ window.closeGrid = (book) => {
 window.clearHighlights = clearHighlights;
 
 window.addEventListener('load', () => {
-  // load previous scene and translation
   const savedSceneTitle = localStorage.getItem('selectedScene');
   const savedTranslation = localStorage.getItem('selectedTranslation');
   const translationSelect = document.getElementById('translation');
@@ -80,16 +79,6 @@ window.addEventListener('load', () => {
     translationSelect.value = savedTranslation;
   }
 
-  if (savedSceneTitle && tomSceneDropdown) {
-    const match = Object.values(tomSceneDropdown.options).find((opt) => opt.text === savedSceneTitle);
-    if (match) {
-      tomSceneDropdown.setValue(savedSceneTitle);
-      const form = document.getElementById('sceneForm');
-      form.dispatchEvent(new Event('submit'));
-    }
-  }
-
-  // load previous options
   const savedLineHeight = localStorage.getItem('lineHeight');
   const savedFontSize = localStorage.getItem('fontSize');
   const savedToggleVerses = localStorage.getItem('toggleVerses');
@@ -99,14 +88,20 @@ window.addEventListener('load', () => {
     if (savedFontSize) box.style.fontSize = savedFontSize;
   });
 
-  document.getElementById('textSize').value = savedFontSize.replace('px', '');
-  document.getElementById('lineHeight').value = savedLineHeight;
+  if (savedFontSize) {
+    document.getElementById('textSize').value = savedFontSize.replace('px', '');
+  }
+
+  if (savedLineHeight) {
+    document.getElementById('lineHeight').value = savedLineHeight;
+  }
+
   if (savedToggleVerses !== null) {
     document.getElementById('toggleVerses').checked = savedToggleVerses === 'true';
   }
 
   const form = document.getElementById('sceneForm');
-  if (form) {
+  if (form && savedSceneTitle) {
     form.dispatchEvent(new Event('submit'));
   }
 });
