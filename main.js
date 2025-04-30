@@ -96,8 +96,12 @@ window.addEventListener('load', () => {
     document.getElementById('lineHeight').value = savedLineHeight;
   }
 
-  if (savedToggleVerses !== null) {
+  if (savedToggleVerses) {
     document.getElementById('toggleVerses').checked = savedToggleVerses === 'true';
+  }
+
+  if (savedSceneTitle && tomSceneDropdown) {
+    tomSceneDropdown.setValue(savedSceneTitle);
   }
 
   const form = document.getElementById('sceneForm');
